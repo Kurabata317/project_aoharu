@@ -1,24 +1,4 @@
-# project_aoharu
+모바일 서브컬처 게임 '블루 아카이브' 의 브금 검색기입니다.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+이 프로젝트는 아직 완성되지 않았습니다.
+개발 진척에 따라 기능이 추가 및 변경될 수 있습니다.
