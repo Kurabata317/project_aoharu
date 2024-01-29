@@ -2,11 +2,11 @@
   <body>
     <h4>BlueTune</h4>
     <div class="mfit" v-for="(tracklist, i) in musicname" :key="i" :id="[`mf${i}`]">
-      <div class="mbox titlebox" :id="[`mbx${i}`]" v-on:click="dtopen(i)">
+      <div class="mbox titlebox" :id="[`mbx${i}`]" v-on:click="dtopen(e, i)">
         <div class="mtext m_num">{{ tracklist.num }}</div>
         <div class="mtext m_title">{{ tracklist.title }}</div>
         <div class="mtext m_artist">{{ tracklist.artist }}</div>
-        <div class="mtext m_playlink">▶</div>
+        <a class="mtext m_playlink" :href="[`${tracklist.link.youtube}`]">▶</a>
       </div>
       <div class="mbox detail" :id="[`mdt${i}`]">
         <div v-for="(lst, j) in detailtagname" :key="j" :class="[`ct${j}`]">
@@ -184,7 +184,7 @@ export default {
      * 
      * @param {number} index 순서
      */
-    dtopen(index) {
+    dtopen(e, index) {
       let mdt = document.getElementById("mdt"+index);
 
       if(!mdt.style.display || mdt.style.display == "none"){
@@ -278,6 +278,35 @@ h4 {
 .m_playlink {
   color: #00D2FF;
   width: 10%;
+  height: fit-content;
+  text-decoration-line: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.m_playlink::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 200%;
+  border-radius: 20px;
+  touch-action: none;
+  z-index: 9;
+}
+
+.m_playlink::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 200%;
+  border-radius: 20px;
+  z-index: 10;
 }
 
 .m_playlink:active {
@@ -292,7 +321,7 @@ h4 {
 }
 
 .detail * {
-  font-family: "Pretendard";
+  font-family: "Pretendard JP";
   font-weight: 500;
   letter-spacing: -0.75px;
 }
